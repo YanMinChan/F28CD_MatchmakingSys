@@ -6,7 +6,7 @@
 </head>
 <body>
 	<div class="container">
-		<h1>Create Account</h1>
+		<h1>Sign Up</h1>
 
 		<form id="createAcc">
 			<label for="username">Username:</label>
@@ -21,16 +21,19 @@
 			<label for="reppassword">Repeat Password:</label>
 			<input type="password" id="reppassword" name="reppassword" required>
 			<br>
-			<button type="button" onclick="createAccount()">Create Account</button>
+			<button onclick="createAccount()">Create Account</button>
 		</form>
+
+		<button onclick="goToLoginPage()">Go to sign in</button>
 	</div>
-
-
 
 	<script>
 		//add method to send new account information to backend
 		function createAccount(){}
 		//add method to go to login page
+		function goToLoginPage(){
+			window.location.href = "login.html";
+		}
 	</script>
 </body>
 </html>

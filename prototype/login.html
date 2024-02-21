@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<head>
+	<title>Login</title>
+	<!--CSS style sheet-->
+</head>
+<body>
+	<div class="container">
+		<h1>Sign in</h1>
+
+		<form id="login">
+			<label for="username">Username:</label>
+			<input type="text" id="username" name="username" required>
+			<br>
+			<label for="password">Password:</label>
+			<input type="password" id="password" name="password" required>
+			<br>
+			<button onclick="login()">Log In</button>
+		</form>
+
+		<button onclick="goToCreateAccount()">Back to sign up</button>
+	</div>
+
+	<script>
+		//add method to sign in
+		function login(){}
+
+		//add method to go to create account page
+		function goToCreateAccount(){
+			window.location.href = "createAccount.html";
+		}
+	</script>
+</body>
+</html>
