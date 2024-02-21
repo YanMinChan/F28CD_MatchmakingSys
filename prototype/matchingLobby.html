@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<head>
+	<title>Matching Lobby</title>
+</head>
+<body>
+	<div class="container">
+		<button id="exitGame" onclick="exitGame()">Exit Game</button>
+		<div id="image1">
+			<!-- This is image 1 -->
+			Image 1
+		</div>
+		<div id="image2">
+			<!-- This is image 2 -->
+			Image 2
+		</div>
+		<button id="randomMatch" onclick="goToRandomMatch()">Random Match</button>
+		<button id="joinRoom" onclick="goToJoinRoom()">Join Room</button>
+	</div>
+
+	<script>
+		function exitGame(){
+			window.location.href="login.html";
+		}
+		function goToRandomMatch(){
+			window.location.href="waitingRoom.html"
+		}
+		function goToJoinRoom(){
+			window.location.href="joinRoom.html"
+		}
+
+	</script>
+</body>
+</html>
