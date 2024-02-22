@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<head>
+    <title>Join Room</title>
+</head>
+<body>
+    <div class="container">
+        <button id="back">Back</button>
+        <div class="interface">
+            <p>Join Room</p>
+            <br>
+			<label for="enterRoomNum">Enter Room Number:</label>
+			<input type="text" id="enterRoomNum" name="enterRoomNum" required>
+            <br>
+            <p>or</p>
+            <br>
+            <button id="createRoom" onclick="goToWaitingRoom()">Create Room</button>
+        </div>
+    </div>
+    <script>
+        function goToWaitingRoom() {
+            window.location.href="waitingRoom.html";
+        }
+    </script>
+</body>
+</html>
