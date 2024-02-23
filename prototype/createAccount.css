@@ -10,7 +10,7 @@ body {
 /* Container Styles */
 .container {
     width: 400px;
-    margin: auto;
+    margin: 100px auto;
     text-align: center;
     background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
     padding: 30px;
@@ -63,6 +63,7 @@ button {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
+    margin: 5px;
 }
 
 button:hover {
