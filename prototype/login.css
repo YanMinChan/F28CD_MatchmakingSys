@@ -1,0 +1,89 @@
+/* login.css */
+
+/* Background Gradient */
+body {
+    background: linear-gradient(135deg, #1f1f1f, #242424); /* Dark gradient background */
+    font-family: 'Roboto', sans-serif; /* Google Font Roboto for a modern look */
+    color: #fff; /* Text color */
+}
+
+/* Container Styles */
+.container {
+    width: 400px;
+    margin: 100px auto;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1); /* Subtle white shadow */
+}
+
+.interface {
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(2, 0, 0, 0.1); /* Subtle white shadow */
+}
+
+/* Heading Styles */
+h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    letter-spacing: 2px; /* Increase letter spacing for a bold look */
+}
+
+/* Form Styles */
+form {
+    margin-top: 20px;
+}
+
+/* Label Styles */
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 16px;
+    text-align: left; /* Align labels to the left */
+}
+
+/* Input Styles */
+input {
+    width: calc(100% - 16px); /* Account for padding */
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent white background */
+    color: #fff;
+}
+
+input:focus {
+    outline: none; /* Remove outline on focus */
+}
+
+/* Button Styles */
+button {
+    width: 100%;
+    padding: 10px 10px;
+    background-color: #4CAF50; /* Green button color */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+/* Link Styles */
+a {
+    color: #42b7e7; /* Blue link color */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
