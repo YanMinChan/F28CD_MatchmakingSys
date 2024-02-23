@@ -16,6 +16,20 @@
             height: 100vh;
         }
 
+        .header {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
         .chat-container {
             max-width: 400px;
             background-color: #fff;
@@ -91,9 +105,14 @@
     </style>
 </head>
 <body>
+    <div class="header">
+        <button id="back" onclick="goToWaitingRoom()">Back</button>
+        Room no: 1234
+        <button id="reportPlayer" onclick="goToReportPage()">Report Player</button>
+    </div>
     <div class="chat-container">
         <div class="chat-header">
-            <h2>Chatbox</h2>
+            <h2>Game Chat</h2>
         </div>
         <div class="chat-messages">
             <div class="message receiver">
