@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player Victory</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .victory-container {
+            max-width: 600px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .victory-header {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .victory-message {
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .buttons-container {
+            display:flex;
+            justify-content: space-between;
+            padding: 0 10px;
+            margin-top: 20px;
+        }
+
+
+        .reportPlayer,
+        .viewScore {
+            background-color: #3498db;
+            color: #fff;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="victory-container">
+        <div class="victory-header">
+            <h2>Victory</h2>
+        </div>
+        <div class="victory-message">
+            <p>You won</p>
+        </div>
+        <div class="buttons-container">
+            <button class="reportPlayer" onclick="goToReportPage()">Report Player</button>
+            <button class="viewScore" onclick="goToPlayerScorePage()">View Score</button>
+        </div>
+    </div>
+    <script>
+        //Go To Report Page
+        function goToReportPage(){
+            window.location.href="reportPage.html";
+        }
+
+        //Go to player score page
+        //Further development: bring over current player to the next page and show their scores
+        function goToPlayerScorePage(){
+            window.location.href="playerScorePage.html";
+        }
+    </script>
+</body>
+</html>

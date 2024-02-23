@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player Score Page</title>
+</head>
+<body>
+    <div class="header">
+        <button id="leavePage" onclick="goToMatchingLobby()">Leave</button>
+        <button id="reportPlayer" onclick="goToReportPage()">Report Player</button>
+    </div>
+    <div class="container">
+        <h2 id="containerHeading">Player Scores</h2>
+        <p id="p1">Player 1 Score</p>
+        <p id="p2">Player 2 Score</p>
+        <p id="p3">Player 3 Score</p>
+        <p id="p4">Player 4 Score</p>
+    </div>
+    <div class="footer">
+        <button id="chatBox" onclick="goToChatBox()">Chat</button>
+        <button id="playAgain" onclick="goToWaitingRoom()">Play Again</button>
+    </div>
+
+    <script>
+        function goToMatchingLobby(){
+            window.location.href="matchingLobby.html";
+        }
+
+        function goToReportPage(){
+            window.location.href="reportPage.html";
+        }
+
+        function goToChatBox(){
+            window.location.href="chatBoxPage.html";
+        }
+
+        function goToWaitingRoom(){
+            window.location.href="waitingRoom.html";
+        }
+    </script>
+</body>
+</html>
