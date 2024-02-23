@@ -1,5 +1,8 @@
 <!DOCTYPE html>
+<html lang="en"></html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Waiting Room</title>
 </head>
 <body>
@@ -21,7 +24,28 @@
     </div>
 
     <script>
-        
+        //back to matching lobby
+        function backToMatchingLobby(){
+            window.location.href="matchingLobby.html";
+        }
+
+        //go to report page and pass player data on current page to it
+        function goToReportPage(){
+            window.location.href="reportPage.html";
+        }
+
+        //send player data to background and mathc player
+        function matchPlayer(){}
+
+        //go to chat box
+        function goToChatBox(){
+            window.location.href="chatBoxPage.html";
+        }
+
+        //starts game
+        function startGame(){
+            window.location.href="victoryPage.html";
+        }
     </script>
 </body>
 </html>

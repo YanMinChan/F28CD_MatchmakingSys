@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Report Page</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .heading {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .container {
+            display: flex;
+            max-width: 800px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .player-list {
+            list-style: none;
+            padding: 20px;
+            margin: 0;
+            flex: 1;
+        }
+
+        .player-item {
+            border: 1px solid #ccc;
+            margin: 5px;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .report-options {
+            display: none;
+            flex: 1;
+            padding: 20px;
+            border-left: 1px solid #ccc;
+        }
+
+        .report-type {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="heading">
+        <button onclick="goToWaitingRoom()">Back</button>
+        <h2>Game Report Page</h2>
+        
+    </div>
+    <div class="container">
+        <ul class="player-list">
+            <li class="player-item" onclick="showReportOptions('Player1')">Player 1</li>
+            <li class="player-item" onclick="showReportOptions('Player2')">Player 2</li>
+            <li class="player-item" onclick="showReportOptions('Player3')">Player 3</li>
+            <!-- Add more players as needed -->
+        </ul>
+
+        <div id="reportOptions" class="report-options">
+            <h3>Report Options</h3>
+            <div class="report-type">
+                <input type="checkbox" id="cheatingCheckbox">
+                <label for="cheatingCheckbox">Cheating</label>
+            </div>
+            <div class="report-type">
+                <input type="checkbox" id="cheatingCheckbox">
+                <label for="cheatingCheckbox">Common Abuse</label>
+            </div>
+            <div class="report-type">
+                <input type="checkbox" id="cheatingCheckbox">
+                <label for="cheatingCheckbox">Threats</label>
+            </div>
+            <!-- Add more report options as needed -->
+            <button onclick="goBack()">Back</button>
+            <button id="submitReport" onclick="submitReport()">Submit Report</button>
+        </div>
+    </div>
+    
+
+    <script>
+        // Go back to waiting room
+        function goToWaitingRoom(){
+            window.location.href="waitingRoom.html";
+        }
+
+        //Display report options
+        function showReportOptions(playerName) {
+            document.getElementById('reportOptions').style.display = 'block';
+
+            //develop function later to handle report in backend
+        }
+
+        //Choose another player to report
+        function goBack() {
+            document.getElementById('reportOptions').style.display = 'none';
+        }
+
+        function submitReport() {
+            // Modify this function to handle the submission of the report
+            alert('Report submitted successfully!');
+        }
+    </script>
+</body>
+</html>
