@@ -2,9 +2,9 @@
 
 /* Background Gradient */
 body {
-    background: linear-gradient(135deg, #1f1f1f, #242424); /* Dark gradient background */
-    font-family: 'Roboto', sans-serif; /* Google Font Roboto for a modern look */
-    color: #fff; /* Text color */
+    background: linear-gradient(135deg, #1f1f1f, #242424); 
+    font-family: 'Roboto', sans-serif; 
+    color: #fff; 
 }
 
 /* Container Styles */
@@ -16,9 +16,9 @@ body {
 
 /* Back Button Styles */
 #back {
-    float: left; /* Align the back button to the left */
+    float: left; 
     padding: 10px 20px;
-    background-color: #4CAF50; /* Green button color */
+    background-color: #4CAF50;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -27,22 +27,22 @@ body {
 }
 
 #back:hover {
-    background-color: #45a049; /* Darker green on hover */
+    background-color: #45a049; 
 }
 
 /* Interface Styles */
 .interface {
-    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
+    background-color: rgba(0, 0, 0, 0.8); 
     padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1); /* Subtle white shadow */
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
 }
 
 /* Heading Styles */
 p {
     font-size: 24px;
     margin-bottom: 20px;
-    letter-spacing: 2px; /* Increase letter spacing for a bold look */
+    letter-spacing: 2px;
 }
 
 /* Label Styles */
@@ -50,29 +50,29 @@ label {
     display: block;
     margin-bottom: 10px;
     font-size: 16px;
-    text-align: left; /* Align labels to the left */
+    text-align: left; 
 }
 
 /* Input Styles */
 input {
-    width: calc(100% - 16px); /* Account for padding */
+    width: calc(100% - 16px); 
     padding: 10px;
     margin-bottom: 20px;
     border: none;
     border-radius: 5px;
-    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent white background */
+    background-color: rgba(255, 255, 255, 0.1); 
     color: #fff;
 }
 
 input:focus {
-    outline: none; /* Remove outline on focus */
+    outline: none;
 }
 
 /* Create Room Button Styles */
 #createRoom {
     width: 100%;
     padding: 12px;
-    background-color: #42b7e7; /* Blue button color */
+    background-color: #42b7e7; 
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -81,5 +81,5 @@ input:focus {
 }
 
 #createRoom:hover {
-    background-color: #318abf; /* Darker blue on hover */
+    background-color: #318abf; 
 }
