@@ -19,6 +19,9 @@ body {
 
 /* Container Styles */
 .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 80%;
     max-width: 600px; 
     margin: 50px auto;
@@ -27,6 +30,23 @@ body {
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+#exitGame{
+    order: -1;
+}
+
+.images-container {
+    display: flex; /* Make the images container a flex container */
+    justify-content: space-between; /* Distribute items evenly */
+    width: 100%; /* Take up the full width */
+    margin-top: 20px; /* Add some space between the exit button and images */
+}
+
+#image1, 
+#image2 {
+    text-align: center;
+    flex:1;
 }
 
 /* Button Styles */

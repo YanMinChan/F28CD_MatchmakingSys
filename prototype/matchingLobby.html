@@ -32,12 +32,17 @@
 	</div>
 	<div class="container">
 		<button id="exitGame" onclick="exitGame()">Exit Game</button>
-		<div id="image1">
-			<img src="C:\Users\Mridul\Dropbox\PC\Desktop\Card1.jpg" alt="Player 1">
-            <p class="player-label">Player 1</p>
+		<div class="images-container">
+			<div id="image1">
+				<img src="C:\Users\Mridul\Dropbox\PC\Desktop\Card1.jpg" alt="Player 1">
+				<p class="player-label">Player 1</p>
+				<button id="randomMatch" onclick="goToRandomMatch()">Random Match</button>
+			</div>
+			<div id="image2">
+				<p class="player-label">Player 2</p>
+				<button id="joinRoom" onclick="goToJoinRoom()">Join Room</button>
+			</div>
 		</div>
-		<button id="randomMatch" onclick="goToRandomMatch()">Random Match</button>
-		<button id="joinRoom" onclick="goToJoinRoom()">Join Room</button>
 	</div>
 	<div class="footer">
 		<!-- Empty for now -->
