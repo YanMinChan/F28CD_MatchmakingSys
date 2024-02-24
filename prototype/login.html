@@ -1,44 +1,35 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
-	<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Login</title>
-	<!--CSS style sheet-->
+    <title>Login</title>
+    <link href="login.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-	<div class="header">
-		<!-- Empty for now -->
-	</div>	
-	<div class="container">
-		<h1>Sign in</h1>
+    <div class="container">
+        <h1>Sign in</h1>
 
-		<form id="login">
-			<!-- <label for="username">Username:</label> -->
-			<input type="text" id="username" name="username" placeholder="Username"required>
-			<br>
-			<!-- <label for="password">Password:</label> -->
-			<input type="password" id="password" name="password" placeholder="Password"required>
-			<br>
-			<button onclick="login()">Log In</button>
-		</form>
+        <form id="login">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" >
+            <br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" >
+            <br>
+            <button type="button" onclick="login()">Log In</button>
+        </form>
+        <button onclick="goToCreateAccount()">Back to sign up</button>
+    </div>
 
-		<button onclick="goToCreateAccount()">Back to sign up</button>
-	</div>
-	<div class="footer">
-		<!-- Empty for now -->
-	</div>
-	<script>
-		//add method to sign in
-		function login(){
-			//add function to check username and password here
-
-			window.location.href = "matchingLobby.html";
-		}
-
-		//add method to go to create account page
-		function goToCreateAccount(){
-			window.location.href = "createAccount.html";
-		}
-	</script>
+    <script>
+        // Function to go to create account page
+        function goToCreateAccount() {
+            window.location.href = "createAccount.html";
+        }
+        function login() {
+            window.location.href = "waitingRoom.html";
+        }
+    </script>
 </body>
 </html>
