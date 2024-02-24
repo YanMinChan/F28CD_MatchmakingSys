@@ -92,5 +92,5 @@ body {
 }
 .reportPlayer:hover,
 .viewScore:hover {
-    background-color: #c5313e; /* Darker red on hover */
+    background-color: #c5313e; 
 }
