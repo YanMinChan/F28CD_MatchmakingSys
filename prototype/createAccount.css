@@ -1,13 +1,11 @@
 /* CSS for Create Account Page */
 
-/* Background Gradient */
 body {
     background: linear-gradient(135deg, #1f1f1f, #242424); 
     font-family: 'Roboto', sans-serif; 
     color: #fff; 
 }
 
-/* Container Styles */
 .container {
     width: 400px;
     margin: 100px auto;
@@ -18,19 +16,16 @@ body {
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.1); 
 }
 
-/* Heading Styles */
 h1 {
     font-size: 36px;
     margin-bottom: 20px;
     letter-spacing: 2px;
 }
 
-/* Form Styles */
 form {
     margin-top: 20px;
 }
 
-/* Label Styles */
 label {
     display: block;
     margin-bottom: 10px;
@@ -38,7 +33,6 @@ label {
     text-align: left; 
 }
 
-/* Input Styles */
 input {
     width: calc(100% - 16px);
     padding: 10px;
@@ -53,7 +47,6 @@ input:focus {
     outline: none; 
 }
 
-/* Button Styles */
 button {
     width: 100%;
     padding: 12px;
@@ -70,7 +63,6 @@ button:hover {
     background-color: #45a049; 
 }
 
-/* Link Styles */
 a {
     color: #42b7e7; 
     text-decoration: none;
