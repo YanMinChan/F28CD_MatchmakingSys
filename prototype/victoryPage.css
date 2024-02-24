@@ -48,7 +48,7 @@ body {
 }
 .player {
     text-align: center;
-    margin: 10px; /* Add margin for spacing between players */
+    margin: 10px; 
 }
 #player1-img {
     
@@ -77,7 +77,7 @@ body {
 }
 .reportPlayer,
 .viewScore {
-    background-color: #ff4654; /* Valorant red color */
+    background-color: #ff4654; 
     color: #fff;
     padding: 12px 24px;
     border: none;
