@@ -1,0 +1,110 @@
+/* reportPage.css */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1f1f1f; 
+    color: #fff; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 10vh;
+}
+
+.header {
+    background-color: #111;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+}
+
+.header button {
+    background-color: #fff; 
+    color: #000000; 
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 10px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.header button:hover {
+    background-color: #c0310a; 
+    color: #fff; 
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 800px;
+    background-color: #333; 
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); 
+    padding: 30px;
+    margin-top: 20px;
+}
+
+.heading {
+    font-size: 28px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.player-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.player-item {
+    padding: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.player-item:hover {
+    background-color: #444; 
+}
+
+.report-options {
+    display: none;
+    padding: 20px;
+    width: 100%;
+}
+
+.report-type {
+    margin-bottom: 10px;
+}
+
+.report-type input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.footer {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.button {
+    background-color: #fff; 
+    color: #000000; 
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 10px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #4CAF50; 
+    color: #fff; 
+}
