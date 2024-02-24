@@ -80,8 +80,8 @@ body {
 }
 
 .footer button {
-    background-color: #fff; /* White button background */
-    color: #000000; /* Dark green button text */
+    background-color: #fff; 
+    color: #000000; 
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
@@ -91,6 +91,6 @@ body {
 }
 
 .footer button:hover {
-    background-color: #4CAF50; /* Darker green on hover */
-    color: #fff; /* White text on hover */
+    background-color: #4CAF50; 
+    color: #fff; 
 }
