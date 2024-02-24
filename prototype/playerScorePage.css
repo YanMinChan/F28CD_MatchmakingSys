@@ -1,0 +1,96 @@
+/* playerScore.css */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #292525; 
+}
+
+.header {
+    background-color: #8d8585;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+.header button {
+    background-color: #fff; 
+    color: #000000; 
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 10px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.header button:hover {
+    background-color: #c0310a; 
+    color: #fff; 
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #0ba81b;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.container h2 {
+    text-align: center;
+    color: #e5d6d6;
+}
+
+.player-score {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #f0f0f0; 
+    transition: background-color 0.3s ease;
+}
+
+.player-score:hover {
+    background-color: #2e7d13; 
+}
+
+.player-score p {
+    margin: 0;
+}
+
+.player-name {
+    font-weight: bold;
+    color: #000000; 
+}
+
+.player-score-value {
+    font-weight: bold;
+    color: #4CAF50; 
+}
+
+.footer {
+    background-color: #8d8585; 
+    padding: 20px;
+    text-align: center;
+}
+
+.footer button {
+    background-color: #fff; /* White button background */
+    color: #000000; /* Dark green button text */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 10px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.footer button:hover {
+    background-color: #4CAF50; /* Darker green on hover */
+    color: #fff; /* White text on hover */
+}
