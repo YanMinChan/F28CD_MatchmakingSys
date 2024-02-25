@@ -1,54 +1,42 @@
 /* chatBoxPage.css */
 
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f2f2f2;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-}
+/* chatBoxPage.css */
 
-.header {
-    background-color: #504f4f; 
-    color: #fff;
-    padding: 10px;
-    text-align: center;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    z-index: 1000;
+body {
+    background: linear-gradient(135deg, #1f1f1f, #242424); 
+    font-family: 'Roboto', sans-serif; 
+    color: #fff; 
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    margin: 0; /* Remove default body margin */
 }
 
-.header button {
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Align items at the top */
+    padding: 10px;
+}
+
+.topButton {
     background-color: #fff; 
     color: #000000; 
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
-    margin: 0 10px;
+    margin: 10px;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.header button:hover {
-    background-color: #c0310a; 
-    color: #fff; 
-}
-
 .chat-container {
-    max-width: 1000px; 
-    background-color: #252424;
+    max-width: 800px; 
+    margin: 100px auto;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.8); 
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
     overflow: clip;
-    margin-top: 80px; 
 }
 
 .chat-header {
@@ -88,11 +76,12 @@ body {
 .message.receiver .message-content {
     background-color: #fff; 
     color: #333; 
+    position: right;
 }
 
 .message-content:before {
     content: ''; 
-    position: absolute;
+    /* position: absolute; */
     width: 15px;
     height: 15px;
     background-color: inherit; 
