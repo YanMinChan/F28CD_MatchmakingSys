@@ -45,9 +45,13 @@ body {
     flex:1;
 }
 
+.playerLabel {
+    text-align: center;
+}
+
 button {
-    width: 100%;
-    padding: 12px;
+    width: 80%;
+    padding: 10px;
     margin-top: 20px; 
     background-color: #4CAF50; 
     color: #fff;

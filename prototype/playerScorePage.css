@@ -14,7 +14,10 @@ body {
 }
 
 .header {
-    background-color: #8d8585;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    background: linear-gradient(135deg, #1f1f1f, #242424);
     color: #fff;
     padding: 10px;
     text-align: center;
@@ -39,7 +42,7 @@ body {
 .container {
     max-width: 800px;
     margin: 20px auto;
-    background-color: #0ba81b;
+    background-color: rgba(0, 0, 0, 0.8);;
     border-radius: 8px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     padding: 20px;
@@ -57,7 +60,7 @@ body {
     margin-bottom: 10px;
     padding: 10px;
     border-radius: 5px;
-    background-color: #f0f0f0; 
+    background-color: #393b36fc; 
     transition: background-color 0.3s ease;
 }
 
@@ -80,7 +83,10 @@ body {
 }
 
 .footer {
-    background-color: #8d8585; 
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    background: linear-gradient(135deg, #1f1f1f, #242424); 
     padding: 20px;
     text-align: center;
 }
