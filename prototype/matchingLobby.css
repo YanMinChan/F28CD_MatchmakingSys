@@ -9,9 +9,16 @@ body {
 
 .header {
     height: 50px;
-    background-color: #333; 
+    background: linear-gradient(135deg, #1f1f1f, #242424); 
     text-align: center;
     line-height: 50px;
+	display:flex;
+	flex-direction: row;
+}
+
+#disconnect {
+	width: auto;
+	margin-left: auto;
 }
 
 .container {
@@ -26,10 +33,6 @@ body {
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
-}
-
-#exitGame{
-    order: -1;
 }
 
 .images-container {

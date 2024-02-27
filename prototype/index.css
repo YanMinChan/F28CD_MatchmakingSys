@@ -66,9 +66,18 @@ button {
     margin-top: 10px;
 }
 
+#createAccount {
+	background-color: rgba(100, 100, 100, 0.8); 
+}
+
 button:hover {
     background-color: #45a049; 
 }
+
+#createAccount:hover {
+	background-color: rgba(120, 120, 120, 0.8); 
+}
+
 
 a {
     color: #42b7e7;
