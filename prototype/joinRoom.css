@@ -6,6 +6,14 @@ body {
     color: #fff; 
 }
 
+.header {
+    display: flex;
+    justify-content: space-between;
+    background: linear-gradient(135deg, #1f1f1f, #242424);
+    padding: 10px;
+    text-align: center;
+}
+
 .container {
     width: 400px;
     margin: 50px auto;
@@ -15,7 +23,7 @@ body {
 #back {
     float: left; 
     padding: 10px 20px;
-    background-color: #4CAF50;
+    background-color: #c0310a; 
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -24,7 +32,7 @@ body {
 }
 
 #back:hover {
-    background-color: #45a049; 
+    background-color: #d3360a;  
 }
 
 .interface {

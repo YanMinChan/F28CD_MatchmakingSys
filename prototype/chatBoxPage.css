@@ -20,8 +20,8 @@ body {
   }
   
   .topButton {
-    background-color: #fff;
-    color: #000000;
+    background-color: #c0310a; 
+    color: #fff;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
@@ -29,6 +29,9 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
   }
   
+  .topButton:hover {
+    background-color: #d3360a;  
+  }
   
   .chat-container {
     max-width: 400px;
@@ -70,13 +73,15 @@ body {
   .message.sender .message-content {
     background-color: #4CAF50;
     color: #fff;
-    align-self: flex-start;
+    align-self: flex-end;
+    margin-left: auto;
   }
   
   .message.receiver .message-content {
     background-color: #fff;
     color: #333;
-    align-self: flex-end;
+    align-self: flex-start;
+    
   }
   
   .message-content::before {

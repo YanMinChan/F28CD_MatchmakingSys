@@ -63,6 +63,14 @@ button:hover {
     background-color: #45a049; 
 }
 
+#loginPage {
+	background-color: rgba(100, 100, 100, 0.8); 
+}
+
+#loginPage:hover {
+	background-color: rgba(120, 120, 120, 0.8); 
+}
+
 a {
     color: #42b7e7; 
     text-decoration: none;

@@ -24,8 +24,8 @@ body {
 }
 
 .header button {
-    background-color: #fff; 
-    color: #000000; 
+    background-color: #c0310a; 
+    color: #fff;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
@@ -35,7 +35,7 @@ body {
 }
 
 .header button:hover {
-    background-color: #c0310a; 
+    background-color: #d3360a; 
     color: #fff; 
 }
 
@@ -82,6 +82,10 @@ body {
     color: #4CAF50; 
 }
 
+#you {
+    background-color: #4db2dafc; 
+}
+
 .footer {
     display: flex;
     justify-content: space-between;
@@ -92,8 +96,8 @@ body {
 }
 
 .footer button {
-    background-color: #fff; 
-    color: #000000; 
+    background-color: #4CAF50; 
+    color: #fff; 
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
@@ -103,6 +107,5 @@ body {
 }
 
 .footer button:hover {
-    background-color: #4CAF50; 
-    color: #fff; 
+    background-color: #45a049;
 }

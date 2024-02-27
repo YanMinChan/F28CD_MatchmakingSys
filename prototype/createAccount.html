@@ -27,7 +27,7 @@
             <button type="button" onclick="createAccount()">Create Account</button>
         </form>
 
-        <button onclick="goToLoginPage()">Go to sign in</button>
+        <button id="loginPage" onclick="goToLoginPage()">Go to sign in</button>
     </div>
 
     <script>
@@ -36,6 +36,9 @@
             const email = document.getElementById("email").value;
             const password = document.getElementById("password").value;
             const reppassword = document.getElementById("reppassword").value;
+            
+            alert("Account created");
+            window.location.href = "index.html";
         }
 
             const data = { username, email, password };

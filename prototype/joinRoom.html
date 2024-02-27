@@ -5,7 +5,7 @@
 </head>
 <body>
     <div class="header">
-        <button id="back">Back</button>
+        <button id="back" onclick="backToMatchingLobby()">Back</button>
     </div>
     <div class="container">
         
@@ -24,6 +24,9 @@
 
     </div>
     <script>
+        function backToMatchingLobby() {
+            window.location.href="matchingLobby.html";
+        }
         function goToWaitingRoom() {
             window.location.href="waitingRoom.html";
         }
