@@ -11,7 +11,7 @@
     <div class="container">
         <h1>Sign Up</h1>
 
-        <form id="createAcc">
+        <form id="createAcc" action="createAccount.php" method="post">
             <!-- <label for="username">Username:</label> -->
             <input type="text" id="username" name="username" placeholder="Username" required>
             <br>
@@ -24,7 +24,7 @@
             <!-- <label for="reppassword">Repeat Password:</label> -->
             <input type="password" id="reppassword" name="reppassword" placeholder="Repeat Password" required>
             <br>
-            <button type="button" onclick="createAccount()">Create Account</button>
+            <button type="submit">Create Account</button>
         </form>
 
         <button id="loginPage" onclick="goToLoginPage()">Go to sign in</button>
@@ -32,13 +32,13 @@
 
     <script>
         async function createAccount() {
-            const username = document.getElementById("username").value;
-            const email = document.getElementById("email").value;
-            const password = document.getElementById("password").value;
-            const reppassword = document.getElementById("reppassword").value;
+            // const username = document.getElementById("username").value;
+            // const email = document.getElementById("email").value;
+            // const password = document.getElementById("password").value;
+            // const reppassword = document.getElementById("reppassword").value;
             
-            alert("Account created");
-            window.location.href = "index.html";
+            // alert("Account created");
+            // window.location.href = "index.html";
         }
 
             const data = { username, email, password };
