@@ -1,59 +1,64 @@
-<?php
-// 1. Get form data
-$username = $_POST['username'];
-$email = $_POST['email'];
-$password = $_POST['password'];
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account</title>
+    <link href="../style/createAccount.css" rel="stylesheet" type="text/css"> 
+</head>
+<body>
+    <!-- the whole create account container -->
+    <div class="container">
 
-// 2. Connect to database
-$servername = "132.145.18.222";
-$db_username = "yc89";
-$db_password = "t2!BgOChrfZ";
-$dbname = "yc89";
+        <?php
+            // include database configuration
+            include("../config/config.php");
 
-$conn = mysqli_connect($servername, $db_username, $db_password, $dbname);
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
+            // obtain info from POST
+            if (isset($_POST['submit'])){
+                $username = $_POST['username'];
+                $email = $_POST['email'];
+                $password = $_POST['password'];
+                $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-// 3. Hash the password (for security)
-$hashed_password = password_hash($password, PASSWORD_DEFAULT);
+                // execute query
+                $sql = $conn->prepare("INSERT INTO players (name, email, password) VALUES (?, ?, ?)");
+                $sql->bind_param("sss", $username, $email, $hashed_password);
+                $sql->execute();
 
-// 4. Check if the users table exists, if not, create it
-$check_table_query = "SHOW TABLES LIKE 'users'";
-$result = mysqli_query($conn, $check_table_query);
+                // check for success or error
+                if ($sql->affected_rows > 0) {
+                    echo "<div>
+                        <p> Account created successfully! </p>
+                    </div> <br>";
+                    echo "<a href='index.php'><button> Login now </button>";
+                } else {
+                    echo "Error creating account: " . $sql->error;
+                }
+            } else {
+        ?>
 
-if (mysqli_num_rows($result) == 0) {
-    // Table does not exist, create it
-    $create_table_query = "CREATE TABLE users (
-        username VARCHAR(255) PRIMARY KEY,
-        email VARCHAR(255),
-        password VARCHAR(255)
-    )";
-    if (mysqli_query($conn, $create_table_query)) {
-        echo "Table created successfully!";
-    } else {
-        echo "Error creating table: " . mysqli_error($conn);
-    }
-}
+        <h1>Sign Up</h1>
 
-$sql = $conn->prepare("INSERT INTO users (username, email, password) VALUES (?, ?, ?)");
-$sql->bind_param("sss", $username, $email, $hashed_password);
+        <form id="createAcc" action = "" method="post">
+            <input type="text" id="username" name="username" placeholder="Username" required>
+            <br>
+            <input type="email" id="email" name="email" placeholder="Email" required>
+            <br>
+            <input type="password" id="password" name="password" placeholder="Password" required>
+            <br>
+            <input type="password" id="reppassword" name="reppassword" placeholder="Repeat Password" required>
+            <br>
+            <button type="submit" name="submit">Create Account</button>
+        </form>
 
-
-// 5. Execute the query
-$sql->execute();
-
-// 6. Check for success or errors
-if ($sql->affected_rows > 0) {
-    // echo "Account created successfully!";
-    echo '<script type="text/javascript">
-        alert("Welcome at c-sharpcorner.com."); }
-    </script>';
-} else {
-    echo "Error creating account: " . $sql->error;
-}
-
-// 7. Close connection
-$sql->close();
-$conn->close();
-?>
+        <button id="loginPage" onclick="goToLoginPage()">Go to sign in</button>
+    </div>
+    <?php } ?>
+    <script>
+        function goToLoginPage() {
+            window.location.href = "index.html";
+        }
+    </script>
+</body>
+</html>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link href="style/index.css" rel="stylesheet" type="text/css">
+    <link href="../style/index.css" rel="stylesheet" type="text/css">
 </head>
 <body>
     <div class="container">
@@ -24,7 +24,7 @@
 
     <script>
         function goToCreateAccount() {
-            window.location.href = "createAccount.html";
+            window.location.href = "createAccount.php";
         }
         function login() {
             window.location.href = "matchingLobby.html";
