@@ -20,9 +20,6 @@
                 $email = $_POST['email'];
                 $password = $_POST['password'];
                 $rep_password = $_POST['reppassword'];
-                if ($password != $rep_password){
-                    
-                }
                 $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
                 // check if username or email is already registered
