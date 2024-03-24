@@ -9,7 +9,7 @@
 <body>
     
     <div class="header">
-        <button onclick="goToWaitingRoom()">Back</button>
+        <button onclick="goBackLastPage()">Back</button>
         <h2>Game Report Page</h2>
         
     </div>
@@ -53,8 +53,8 @@
 
     <script>
         
-        function goToWaitingRoom(){
-            window.location.href="waitingRoom.html";
+        function goBackLastPage(){
+            self.history.back();
         }
 
         function showReportOptions(playerName) {

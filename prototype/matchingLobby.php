@@ -1,3 +1,11 @@
+<?php
+	session_start();
+
+	include("../config/config.php");
+	if(!isset($_SESSION['valid'])){
+		header("Location: index.php");
+	}
+?>
 <!DOCTYPE html>
 <head>
 	<meta charset="UTF-8">
@@ -28,7 +36,7 @@
 </head>
 <body>
 	<div class="header">
-		<button id="disconnect" onclick="disconnect()">Disconnect</button>
+		<a href="../config/logout.php"><button id="disconnect">Log out</button></a>
 	</div>
 	<div class="container">
 		<div class="images-container">
@@ -45,9 +53,6 @@
 		</div>
 	</div>
 	<script>
-		function disconnect(){
-			window.location.href="index.php";
-		}
 		function goToRandomMatch(){
 			window.location.href="waitingRoom.html"
 		}
