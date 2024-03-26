@@ -25,7 +25,7 @@
                 $sql -> bind_param("s",$username);
                 $sql -> execute();
                 $result = $sql->get_result();
-                if ($result->num_rows <0){ die("Select Error"); }
+                if ($result->num_rows <=0){ die("Select Error"); }
                 $row = $result->fetch_assoc();
 
                 // matching password

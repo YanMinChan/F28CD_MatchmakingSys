@@ -39,14 +39,32 @@
 		<a href="../config/logout.php"><button id="disconnect">Log out</button></a>
 	</div>
 	<div class="container">
+		<?php
+			
+			$pname = $_SESSION['valid'];
+			$query = mysqli_query($conn, "SELECT * FROM players WHERE name='$pname'");
+
+			while($res = mysqli_fetch_assoc($query)){
+				$res_pname = $res['name'];
+			}
+
+		?>
+
+		<div>
+			<h2>Matching Lobby</h2>
+		</div>
+		<div>
+			<p> Hello <b> <?php echo $res_pname ?></b><p>
+		</div>
+
 		<div class="images-container">
 			<div id="image1">
-				<img src="C:\Users\Mridul\Dropbox\PC\Desktop\Card1.jpg" alt="Player 1">
+				<img src="C:\Users\Mridul\Dropbox\PC\Desktop\Card1.jpg" alt="Random Match">
 				<!-- <p class="playerLabel">Player 1</p> -->
 				<button id="randomMatch" onclick="goToRandomMatch()">Random Match</button>
 			</div>
 			<div id="image2">
-				<img src="C:\Users\Mridul\Dropbox\PC\Desktop\Card1.jpg" alt="Player 2">
+				<img src="C:\Users\Mridul\Dropbox\PC\Desktop\Card1.jpg" alt="Join Room">
 				<!-- <p class="playerLabel">Player 2</p> -->
 				<button id="joinRoom" onclick="goToJoinRoom()">Join Room</button>
 			</div>
