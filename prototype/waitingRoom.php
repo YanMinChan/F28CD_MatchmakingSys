@@ -1,3 +1,4 @@
+<!-- now need to connect database to the waiting room number and player name -->
 <!DOCTYPE html>
 <html lang="en"></html>
 <head>
