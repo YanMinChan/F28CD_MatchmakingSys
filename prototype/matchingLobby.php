@@ -59,12 +59,12 @@
 
 		<div class="images-container">
 			<div id="image1">
-				<img src="C:\Users\Mridul\Dropbox\PC\Desktop\Card1.jpg" alt="Random Match">
+				<img src="../playing-video-games.jpg" alt="Random Match">
 				<!-- <p class="playerLabel">Player 1</p> -->
 				<button id="randomMatch" onclick="goToRandomMatch()">Random Match</button>
 			</div>
 			<div id="image2">
-				<img src="C:\Users\Mridul\Dropbox\PC\Desktop\Card1.jpg" alt="Join Room">
+				<img src="../join-room.jpg" alt="Join Room">
 				<!-- <p class="playerLabel">Player 2</p> -->
 				<button id="joinRoom" onclick="goToJoinRoom()">Join Room</button>
 			</div>
@@ -75,7 +75,7 @@
 			window.location.href="waitingRoom.php"
 		}
 		function goToJoinRoom(){
-			window.location.href="joinRoom.html"
+			window.location.href="joinRoom.php"
 		}
 
 	</script>

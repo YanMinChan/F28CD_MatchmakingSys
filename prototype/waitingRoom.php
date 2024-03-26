@@ -10,30 +10,30 @@
 
 </head>
 <body>
-<?php
-            // URL of your Python backend
-            $python_backend_url = 'http://localhost:8080';
+    <?php
+        // URL of your Python backend
+        $python_backend_url = 'http://localhost:8080';
 
-            // Make a GET request to the Python backend
-            $response_json = file_get_contents($python_backend_url);
+        // Make a GET request to the Python backend
+        $response_json = file_get_contents($python_backend_url);
 
-            // Decode the JSON response into a PHP associative array
-            $response_data = json_decode($response_json, true);
+        // Decode the JSON response into a PHP associative array
+        $response_data = json_decode($response_json, true);
 
-            // Check if the response contains player names
-            if (isset($response_data['players'])) {
-                $player_names = $response_data['players'];
-            } else {
-                echo "No player names found.";
-            }
+        // Check if the response contains player names
+        if (isset($response_data['players'])) {
+            $player_names = $response_data['players'];
+        } else {
+            echo "No player names found.";
+        }
 
-            // Check if the response contains room num
-            if (isset($response_data['room'])){
-                $room_num = $response_data['room'];
-            } else {
-                echo "Room number not found.";
-            }
-        ?>
+        // Check if the response contains room num
+        if (isset($response_data['room'])){
+            $room_num = $response_data['room'];
+        } else {
+            echo "Room number not found.";
+        }
+    ?>
     <div class="header">
         <button id="leaveRoom" onclick="backToMatchingLobby()">Leave Room</button>
         <p> Room no: <?php echo $room_num ?></p>
