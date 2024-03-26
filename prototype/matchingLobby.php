@@ -72,7 +72,7 @@
 	</div>
 	<script>
 		function goToRandomMatch(){
-			window.location.href="waitingRoom.html"
+			window.location.href="waitingRoom.php"
 		}
 		function goToJoinRoom(){
 			window.location.href="joinRoom.html"

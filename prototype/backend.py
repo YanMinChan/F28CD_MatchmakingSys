@@ -7,11 +7,13 @@ class RequestHandler(BaseHTTPRequestHandler):
         self.send_header('Content-type', 'application/json')
         self.end_headers()
         
-        # Define a list of player names (replace this with your logic to fetch player names)
+        # Define data you wanted to be sent to the HTML (replace this with your logic)
         player_names = ["Player1", "Player2", "Player3", "Player4", "Player5"]
+        room_num = 1111
         
         # Convert the list to JSON format
-        response = json.dumps({"players": player_names})
+        response = json.dumps({"players": player_names,
+                               "room": room_num})
         
         # Write the JSON response to the client
         self.wfile.write(response.encode())

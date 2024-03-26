@@ -10,13 +10,7 @@
 
 </head>
 <body>
-    <div class="header">
-        <button id="leaveRoom" onclick="backToMatchingLobby()">Leave Room</button>
-        <p> Room no: 1234</p>
-        <button id="reportPlayer" onclick="goToReportPage()">Report Player</button>
-    </div>
-    <div class="container">
-        <?php
+<?php
             // URL of your Python backend
             $python_backend_url = 'http://localhost:8080';
 
@@ -32,7 +26,20 @@
             } else {
                 echo "No player names found.";
             }
+
+            // Check if the response contains room num
+            if (isset($response_data['room'])){
+                $room_num = $response_data['room'];
+            } else {
+                echo "Room number not found.";
+            }
         ?>
+    <div class="header">
+        <button id="leaveRoom" onclick="backToMatchingLobby()">Leave Room</button>
+        <p> Room no: <?php echo $room_num ?></p>
+        <button id="reportPlayer" onclick="goToReportPage()">Report Player</button>
+    </div>
+    <div class="container">
         <p> Our Team </p>
         <div class="container">
             <div class="players-grid">
