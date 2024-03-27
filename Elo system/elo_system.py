@@ -21,6 +21,7 @@ def calculate_expected_outcome(ra, rb, c=400):
 
 # Update Elo rating after a match considering individual performance
 def update_elo_with_performance(ra, sa, ea, pa, pb, kills, deaths, k=32, l=1, v=5):
+
     performance_factor = (kills - deaths) / 10.0  # Assuming kills and deaths are on a scale of 0 to 10
     return ra + k * (sa - ea) + l * (pa / (pa + pb)) + sa * v + performance_factor
 
@@ -36,13 +37,25 @@ def simulate_game(players):
     
     # Determine the match result probabilistically
     probability_team1_win = calculate_expected_outcome(team1_average_elo, team2_average_elo)
-    match_result = random.choices([1, 0.5, 0], weights=[probability_team1_win, 1 - probability_team1_win, 1 - probability_team1_win], k=1)[0]
-    
+    #match_result = random.choices([1, 0.5, 0], weights=[probability_team1_win, 1 - probability_team1_win, 1 - probability_team1_win], k=1)[0]
+    match_result_team1 = random.choice([1, 0.5, 0])
+    match_result_team2 = 0
+
+    if(match_result_team1 == 1):
+        match_result_team2 = 0
+        
+
+    elif(match_result_team1 == 0):
+        match_result_team2 = 1
+
+    else:
+        match_result_team2 = 0.5
+
     # Update Elo ratings based on match result
     for player in team1:
-        player['elo_rating'] = update_elo_with_performance(player['elo_rating'], match_result, 1, team1_average_elo, team2_average_elo, player['kills'], player['deaths'])
+        player['elo_rating'] = update_elo_with_performance(player['elo_rating'], match_result_team1, 1, team1_average_elo, team2_average_elo, player['kills'], player['deaths'])
     for player in team2:
-        player['elo_rating'] = update_elo_with_performance(player['elo_rating'], 1 - match_result, 1, team2_average_elo, team1_average_elo, player['kills'], player['deaths'])
+        player['elo_rating'] = update_elo_with_performance(player['elo_rating'], match_result_team2, 1, team2_average_elo, team1_average_elo, player['kills'], player['deaths'])
 
     # Print updated Elo ratings for each player
     print("Updated Elo ratings for Team 1:")
@@ -53,13 +66,13 @@ def simulate_game(players):
     for player in team2:
         print(player['name'], "-", player['elo_rating'])
 
-
 # Main function
 def main():
     players = load_players("players.json")
     
     # Simulate a game and update player data
-    simulate_game(players)
+    for i in range(100):
+        simulate_game(players)
     
     # Save updated player data to JSON file
     save_players("players.json", players)
