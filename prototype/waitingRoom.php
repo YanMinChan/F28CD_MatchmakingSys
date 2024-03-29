@@ -37,7 +37,7 @@
 
         if(array_key_exists('StartGame', $_POST))
         {
-            $command = escapeshellcmd('python ../Elo System/elo_system.py');
+            $command = escapeshellcmd('python ../Elo System/elo_system_sql.py');
             $output = shell_exec($command);
             echo $output;
         }
