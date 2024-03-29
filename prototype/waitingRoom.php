@@ -34,6 +34,13 @@
         } else {
             echo "Room number not found.";
         }
+
+        if(array_key_exists('StartGame', $_POST))
+        {
+            $command = escapeshellcmd('python ../Elo System/elo_system.py');
+            $output = shell_exec($command);
+            echo $output;
+        }
     ?>
     <div class="header">
         <button id="leaveRoom" onclick="backToMatchingLobby()">Leave Room</button>
@@ -64,7 +71,9 @@
         </div>
         <br>
         <button id="chatbox" onclick="goToChatBox()">Chat</button>
-        <button id="play" onclick="startGame()">Play</button>
+        <form method="post">
+            <input type="submit" name="StartGame" value="Play" id="play" />
+        </form>
     </div>
     <div class="footer"></div>
     <script>
@@ -81,9 +90,7 @@
             window.location.href="chatBoxPage.html";
         }
 
-        function startGame(){
-            window.location.href="victoryPage.html";
-        }
+
     </script>
 </body>
 </html>
