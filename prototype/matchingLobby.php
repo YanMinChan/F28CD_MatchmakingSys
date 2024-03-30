@@ -35,6 +35,7 @@
         </style>
 </head>
 <body>
+	<div class="page-title">Matching Lobby</div>
 	<div class="header">
 		<a href="../config/logout.php"><button id="disconnect">Log out</button></a>
 	</div>
