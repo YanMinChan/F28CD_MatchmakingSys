@@ -13,6 +13,14 @@ body {
     color: #fff; 
 }
 
+.page-title {
+    text-align: center;
+    color: #ffffff; /* Adjust color to fit your theme */
+    font-size: 24px; /* Adjust size as needed */
+    margin: 20px 0; /* Provides some spacing above and below the title */
+    font-weight: bold; /* Makes the title stand out */
+}
+
 .header {
     display: flex;
     justify-content: space-between;
