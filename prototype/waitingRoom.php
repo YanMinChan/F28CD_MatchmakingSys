@@ -35,11 +35,12 @@
             echo "Room number not found.";
         }
 
-        if(array_key_exists('StartGame', $_POST))
-        {
-            $command = escapeshellcmd('python ../Elo System/elo_system_sql.py');
-            $output = shell_exec($command);
-            echo $output;
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            if(array_key_exists('StartGame', $_POST)) {
+                $command = escapeshellcmd('python ./../ES/elo_system_sql.py');
+                $output = shell_exec($command);
+                echo $output;
+            }
         }
     ?>
     <div class="header">
@@ -72,7 +73,7 @@
         <br>
         <button id="chatbox" onclick="goToChatBox()">Chat</button>
         <form method="post">
-            <input type="submit" name="StartGame" value="Play" id="play" />
+            <input type="submit" name="StartGame" id="play" value="Play" />
         </form>
     </div>
     <div class="footer"></div>

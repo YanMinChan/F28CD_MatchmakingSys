@@ -1,9 +1,11 @@
 import json
+import os
 import math
 import random
 import mysql.connector
+os.chdir('../ES')
 
-# Load player data from Database
+# Load player data from Database 
 def load_players_sql(conf):
     try:
         # Connect to the database

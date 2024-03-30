@@ -1,0 +1,1 @@
+fichier = open("data.txt", "w")
