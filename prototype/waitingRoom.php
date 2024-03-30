@@ -11,6 +11,7 @@
 
 </head>
 <body>
+    <div class="page-title">Waiting Room</div>
     <?php
         // URL of your Python backend
         $python_backend_url = 'http://localhost:8080';
