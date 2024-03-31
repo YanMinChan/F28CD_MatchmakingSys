@@ -66,16 +66,21 @@ def simulate_game(players):
     for player in team2:
         print(player['name'], "-", player['elo_rating'])
 
+    if match_result_team1 == 1:
+        return 1
+    return 0
+
 # Main function
 def main():
     players = load_players("players.json")
     
     # Simulate a game and update player data
-    for i in range(100):
-        simulate_game(players)
+    a = simulate_game(players)
     
     # Save updated player data to JSON file
     save_players("players.json", players)
+
+    return a
 
 if __name__ == "__main__":
     main()

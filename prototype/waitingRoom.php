@@ -12,6 +12,7 @@
 </head>
 <body>
     <?php
+    
         // URL of your Python backend
         $python_backend_url = 'http://localhost:8080';
 
@@ -39,7 +40,8 @@
             if(array_key_exists('StartGame', $_POST)) {
                 $command = escapeshellcmd('python ./../ES/elo_system_sql.py');
                 $output = shell_exec($command);
-                echo $output;
+                header('Location: ./victoryPage.html');
+                exit;
             }
         }
     ?>
@@ -72,9 +74,9 @@
         </div>
         <br>
         <button id="chatbox" onclick="goToChatBox()">Chat</button>
-        <form method="post">
-            <input type="submit" name="StartGame" id="play" value="Play" />
-        </form>
+            <form method="post">
+                <input type="submit" name="StartGame" id="play" value="Play" />
+            </form>
     </div>
     <div class="footer"></div>
     <script>
