@@ -45,7 +45,8 @@
 			include ("../config/createRoom.php");
 			
 			if(isset($_POST['goToRandomMatch'])){
-				$current_player_elo = $_SESSION['elo'];
+				$query = mysqli_query($conn, "SELECT * FROM players WHERE name='".$_SESSION['username']."'");
+				$current_player_elo = mysqli_fetch_assoc($query)['elo_rating'];
 				$query = mysqli_query($conn, "SELECT * FROM rooms WHERE player_count < 5 ORDER BY ABS(team_elo - $current_player_elo) LIMIT 1");
 				$res = mysqli_fetch_assoc($query);
 
@@ -59,7 +60,7 @@
 					if (abs($res['team_elo'] - $current_player_elo) < $threshold) {
 						$_SESSION['room_num'] = $res['room_num'];
 						$_SESSION['player_count'] = $res['player_count'];
-						$_SESSION['team_elo'] = ($res['team_elo'] + $current_player_elo)/($_SESSION['player_count'] + 1);
+						$_SESSION['team_elo'] = ($res['team_elo'] * $_SESSION['player_count'] + $current_player_elo)/($_SESSION['player_count'] + 1);
 						
 						// update team elo
 						$query = mysqli_query($conn, "UPDATE rooms SET team_elo=".$_SESSION['team_elo'].", player_count=(".$_SESSION['player_count']." + 1) WHERE room_num=".$_SESSION['room_num']);

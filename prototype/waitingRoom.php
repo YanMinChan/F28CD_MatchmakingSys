@@ -20,6 +20,7 @@
 </head>
 <body>
     <div class="page-title">Waiting Room</div>
+    <!-- This php code handle all action of the play button and starting the game -->
     <?php
         // // URL of your Python backend
         // $python_backend_url = 'http://localhost:8080';
@@ -43,13 +44,27 @@
         // } else {
         //     echo "Room number not found.";
         // }
+        $query = mysqli_query($conn, "SELECT * FROM rooms WHERE room_num=".$_SESSION['room_num']);
+        $res = mysqli_fetch_assoc($query);     
+
+        if($res['in_game']){
+            header("Location:victoryPage.php");
+        }
 
         if (isset($_POST['StartGame'])) {
-            if(array_key_exists('StartGame', $_POST)) {
+            // start game if room is full
+            if ($res['player_count']==5){
+                $query = mysqli_query($conn, "UPDATE rooms SET in_game=true WHERE room_num=".$_SESSION['room_num']);
+                header("Location:victoryPage.php");
+
+                // execute the python elo rating code
                 $command = escapeshellcmd('python ./../ES/elo_system_sql.py');
                 $output = shell_exec($command);
                 echo $output;
             }
+
+
+
         }
     ?>
     <!-- This php code fetch all player in current room -->
@@ -58,8 +73,10 @@
         if ($query){
             // check if there are players in room
             if (mysqli_num_rows($query) > 0){
-                $res = mysqli_fetch_assoc($query);
-                $players = array($res['pname']);
+                while($row = mysqli_fetch_assoc($query)){
+                    $players[] = $row['pname'];
+                }
+
             } else {
                 $res = "No players"; 
             }
@@ -112,7 +129,7 @@
         <br>
         <button id="chatbox" onclick="goToChatBox()">Chat</button>
         <form method="post">
-            <input type="submit" name="StartGame" id="play" value="Play" />
+            <button type="submit" name="StartGame" id="play">Play</button>
         </form>
     </div>
     <div class="footer"></div>

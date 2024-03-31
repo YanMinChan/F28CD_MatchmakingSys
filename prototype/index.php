@@ -39,7 +39,7 @@
                     $_SESSION['valid'] = $row['name'];
                     $_SESSION['username'] = $row['name'];
                     $_SESSION['email'] = $row['email'];
-                    $_SESSION['elo'] = $row['elo_rating'];
+
                 } else {
                     echo "<div> 
                     <p> Wrong username or password </p>
