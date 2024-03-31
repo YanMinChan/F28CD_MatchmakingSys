@@ -38,6 +38,16 @@
                     $sql->bind_param("ds", $room_num, $_SESSION['username']);
                     $sql->execute();
 
+                    $row = $result->fetch_assoc();
+                    $query = mysqli_query($conn, "SELECT * FROM players WHERE name='".$_SESSION['username']."'");
+                    $current_player_elo = mysqli_fetch_assoc($query)['elo_rating'];
+
+                    $_SESSION['room_num'] = $room_num;
+                    $_SESSION['player_count'] = $row['player_count'];
+                    $_SESSION['team_elo'] = ($row['team_elo'] * $_SESSION['player_count'] + $current_player_elo)/($_SESSION['player_count'] + 1);
+
+                    $query = mysqli_query($conn, "UPDATE rooms SET team_elo=".$_SESSION['team_elo'].", player_count=(".$_SESSION['player_count']." + 1) WHERE room_num=".$_SESSION['room_num']);
+
                     // check for success or error
                     if ($sql->affected_rows > 0) {
                         echo "<div>
@@ -64,8 +74,8 @@
                 }
 
                 // store room_num and creator
-                $sql = $conn->prepare("INSERT INTO rooms (room_num, creator) VALUES (?, ?)");
-                $sql->bind_param("ds", $room_num, $_SESSION['username']);
+                $sql = $conn->prepare("INSERT INTO rooms (room_num, creator, team_elo) VALUES (?, ?, ?)");
+                $sql->bind_param("dsd", $room_num, $_SESSION['username'], $_SESSION['elo']);
                 $sql->execute();
 
                 // check for success or error

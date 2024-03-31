@@ -1,9 +1,17 @@
-<!-- now need to connect database to the waiting room number and player name -->
+<?php
+	session_start();
+
+	include("../config/config.php");
+	if(!isset($_SESSION['valid'])){
+		header("Location: index.php");
+	}
+?>
 <!DOCTYPE html>
 <html lang="en"></html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="10" />
     <title>Waiting Room</title>
     <link href="../style/waitingRoom.css" rel="stylesheet" type="text/css">
     <style>
@@ -11,43 +19,87 @@
 
 </head>
 <body>
+    <div class="page-title">Waiting Room</div>
+    <!-- This php code handle all action of the play button and starting the game -->
     <?php
     
         // URL of your Python backend
         $python_backend_url = 'http://localhost:8080';
 
-        // Make a GET request to the Python backend
-        $response_json = file_get_contents($python_backend_url);
+        // // Make a GET request to the Python backend
+        // $response_json = file_get_contents($python_backend_url);
 
-        // Decode the JSON response into a PHP associative array
-        $response_data = json_decode($response_json, true);
+        // // Decode the JSON response into a PHP associative array
+        // $response_data = json_decode($response_json, true);
 
-        // Check if the response contains player names
-        if (isset($response_data['players'])) {
-            $player_names = $response_data['players'];
-        } else {
-            echo "No player names found.";
+        // // Check if the response contains player names
+        // if (isset($response_data['players'])) {
+        //     $player_names = $response_data['players'];
+        // } else {
+        //     echo "No player names found.";
+        // }
+
+        // // Check if the response contains room num
+        // if (isset($response_data['room'])){
+        //     $room_num = $response_data['room'];
+        // } else {
+        //     echo "Room number not found.";
+        // }
+        $query = mysqli_query($conn, "SELECT * FROM rooms WHERE room_num=".$_SESSION['room_num']);
+        $res = mysqli_fetch_assoc($query);     
+
+        if($res['in_game']){
+            header("Location:victoryPage.php");
         }
 
-        // Check if the response contains room num
-        if (isset($response_data['room'])){
-            $room_num = $response_data['room'];
-        } else {
-            echo "Room number not found.";
-        }
+        if (isset($_POST['StartGame'])) {
+            // start game if room is full
+            if ($res['player_count']==5){
+                $query = mysqli_query($conn, "UPDATE rooms SET in_game=true WHERE room_num=".$_SESSION['room_num']);
+                header("Location:victoryPage.php");
 
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            if(array_key_exists('StartGame', $_POST)) {
+                // execute the python elo rating code
                 $command = escapeshellcmd('python ./../ES/elo_system_sql.py');
                 $output = shell_exec($command);
                 header('Location: ./victoryPage.html');
                 exit;
             }
+
+
+
         }
     ?>
+    <!-- This php code fetch all player in current room -->
+    <?php
+        $query = mysqli_query($conn, "SELECT * FROM player_joinroom WHERE room_num=".$_SESSION['room_num']." AND pname NOT LIKE '".$_SESSION['username']."'");
+        if ($query){
+            // check if there are players in room
+            if (mysqli_num_rows($query) > 0){
+                while($row = mysqli_fetch_assoc($query)){
+                    $players[] = $row['pname'];
+                }
+
+            } else {
+                $res = "No players"; 
+            }
+        }
+    ?>
+    
+    <!-- This php code handles all action of the leave room button -->
+    <?php
+        include("../config/leaveRoom.php");
+        if(isset($_POST['leaveRoom'])){
+            leaveRoom();
+
+            // url to matching lobby
+            header("Location: matchingLobby.php");
+        }
+    ?>
+
+    
     <div class="header">
-        <button id="leaveRoom" onclick="backToMatchingLobby()">Leave Room</button>
-        <p> Room no: <?php echo $room_num ?></p>
+        <form method="post"><button id="leaveRoom" name="leaveRoom">Leave Room</button></form>
+        <p> Room no: <?php echo $_SESSION['room_num'] ?></p>
         <button id="reportPlayer" onclick="goToReportPage()">Report Player</button>
     </div>
     <div class="container">
@@ -56,19 +108,23 @@
             <div class="players-grid">
                 <div class="player" id="player1">
                     <img src="C:\Users\Mridul\Dropbox\PC\Desktop\Card1.jpg" alt="Player 1 Image" id="player1-img">
-                    <p><?php echo $player_names[0] ?></p>
+                    <p><?php echo $_SESSION['username'] ?></p>
                 </div>
                 <div class="player" id="player2">
                     <img src="C:\Users\Mridul\Dropbox\PC\Desktop\Card2.jpg" alt="Player 2 Image" id="player2-img">
-                    <p><?php echo $player_names[1] ?></p>
+                    <p><?php if(!empty($players[0])){echo $players[0];} else {echo "No player";} ?></p>
                 </div>
                 <div class="player" id="player3">
                     <img src="C:\Users\Mridul\Dropbox\PC\Desktop\Card1.jpg" alt="Player 3 Image" id="player3-img">
-                    <p><?php echo $player_names[2] ?></p>
+                    <p><?php if(!empty($players[1])){echo $players[1];} else {echo "No player";} ?></p>
                 </div>
                 <div class="player" id="player4">
                     <img src="C:\Users\Mridul\Dropbox\PC\Desktop\Card2.jpg" alt="Player 4 Image" id="player4-img">
-                    <p><?php echo $player_names[3] ?></p>
+                    <p><?php if(!empty($players[2])){echo $players[2];} else {echo "No player";} ?></p>
+                </div>
+                <div class="player" id="player5">
+                    <img src="C:\Users\Mridul\Dropbox\PC\Desktop\Card2.jpg" alt="Player 4 Image" id="player4-img">
+                    <p><?php if(!empty($players[3])){echo $players[3];} else {echo "No player";} ?></p>
                 </div>
             </div>
         </div>
@@ -84,16 +140,10 @@
         function goToReportPage(){
             window.location.href="reportPage.html";
         }
-        
-        function backToMatchingLobby(){
-            window.location.href="matchingLobby.php";
-        }
 
         function goToChatBox(){
             window.location.href="chatBoxPage.html";
         }
-
-
     </script>
 </body>
 </html>

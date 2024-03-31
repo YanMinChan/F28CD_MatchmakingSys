@@ -25,7 +25,12 @@
                 $sql -> bind_param("s",$username);
                 $sql -> execute();
                 $result = $sql->get_result();
-                if ($result->num_rows <=0){ die("Select Error"); }
+                if ($result->num_rows <=0){ 
+                    echo "<div> <p> Account does not exist </p>
+                    </div> <br>";
+                    echo "<a href='javascript:self.history.back()'><button> Go Back </button>";
+                    die();
+                }
                 $row = $result->fetch_assoc();
 
                 // matching password
@@ -34,6 +39,7 @@
                     $_SESSION['valid'] = $row['name'];
                     $_SESSION['username'] = $row['name'];
                     $_SESSION['email'] = $row['email'];
+
                 } else {
                     echo "<div> 
                     <p> Wrong username or password </p>

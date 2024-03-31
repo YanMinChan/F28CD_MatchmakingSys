@@ -1,3 +1,11 @@
+<?php
+	session_start();
+
+	include("../config/config.php");
+	if(!isset($_SESSION['valid'])){
+		header("Location: index.php");
+	}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,8 +15,16 @@
     <link href="../style/playerScorePage.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+    <!-- This php code will handle the leave room button -->
+    <?php
+        include("../config/leaveRoom.php");
+        if(isset($_POST['leavePage'])){
+            leaveRoom();
+            header("Location:matchingLobby.php");
+        }
+    ?>
     <div class="header">
-        <button id="leavePage" onclick="goToMatchingLobby()">Leave</button>
+        <form method="post"><button id="leavePage" name="leavePage">Leave</button></form>
         <button id="reportPlayer" onclick="goToReportPage()">Report Player</button>
     </div>
     <div class="container">
@@ -52,10 +68,6 @@
     </div>
 
     <script>
-        function goToMatchingLobby(){
-            window.location.href="matchingLobby.php";
-        }
-
         function goToReportPage(){
             window.location.href="reportPage.html";
         }

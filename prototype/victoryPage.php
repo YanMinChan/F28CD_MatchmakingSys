@@ -1,3 +1,11 @@
+<?php
+	session_start();
+
+	include("../config/config.php");
+	if(!isset($_SESSION['valid'])){
+		header("Location: index.php");
+	}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +15,13 @@
     <link href="../style/victoryPage.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+    <!-- This php code handle all action of the view score button -->
+    <?php
+        if(isset($_POST['viewScore'])){
+            $query = mysqli_query($conn, "UPDATE rooms SET in_game=false WHERE room_num=".$_SESSION['room_num']);
+            header("Location:playerScorePage.php");
+        }
+    ?>
     <div class="container">
         <div class="players-grid">
             <div class="player" id="player1">
@@ -28,7 +43,7 @@
         </div>
         <div class="buttons-container">
             <button class="reportPlayer" onclick="goToReportPage()">Report Player</button>
-            <button class="viewScore" onclick="goToPlayerScorePage()">View Score</button>
+            <form method="post"><button class="viewScore" name="viewScore">View Score</button></form>
         </div>
     </div>
     <div class="container">
@@ -49,7 +64,7 @@
         }
 
         function goToPlayerScorePage(){
-            window.location.href = "playerScorePage.html";
+            window.location.href = "playerScorePage.php";
         }
     </script>
 </body>
