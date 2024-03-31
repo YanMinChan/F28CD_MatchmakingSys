@@ -64,8 +64,8 @@
                 }
 
                 // store room_num and creator
-                $sql = $conn->prepare("INSERT INTO rooms (room_num, creator) VALUES (?, ?)");
-                $sql->bind_param("ds", $room_num, $_SESSION['username']);
+                $sql = $conn->prepare("INSERT INTO rooms (room_num, creator, team_elo) VALUES (?, ?, ?)");
+                $sql->bind_param("dsd", $room_num, $_SESSION['username'], $_SESSION['elo']);
                 $sql->execute();
 
                 // check for success or error
