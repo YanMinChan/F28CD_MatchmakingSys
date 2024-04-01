@@ -9,7 +9,7 @@ os.chdir('../ES')
 # We are going to select 2 teams with closest team elo and match them
 # Input: room number
 # Action: generate score and store them in sql
-# Output: game result
+# Output: game result(not implemented yet) and opposite team room number
 
 # Load player data from Database 
 def load_players_sql(conf, room_num):
