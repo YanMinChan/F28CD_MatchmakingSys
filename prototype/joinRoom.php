@@ -32,7 +32,13 @@
                         <p> This room does not exist! </p>
                     </div> <br>";
                     echo "<a href='javascript:self.history.back()'><button id='roomne'> Go Back </button>";
-                } else {
+                } else if ($result-> fetch_assoc()['player_count'] == 5){
+                    echo "<div class='interface'>
+                        <p> This room is full! </p>
+                    </div> <br>";
+                    echo "<a href='javascript:self.history.back()'><button id='roomne'> Go Back </button>";
+                }
+                else {
                     // successfully join room, insert player into room
                     $sql = $conn->prepare("INSERT INTO player_joinroom (room_num, pname) VALUES (?, ?)");
                     $sql->bind_param("ds", $room_num, $_SESSION['username']);
@@ -72,10 +78,11 @@
                         $room_num += 1;
                     }
                 }
+                $_SESSION['room_num']=$room_num;
 
                 // store room_num and creator
                 $sql = $conn->prepare("INSERT INTO rooms (room_num, creator, team_elo) VALUES (?, ?, ?)");
-                $sql->bind_param("dsd", $room_num, $_SESSION['username'], $_SESSION['elo']);
+                $sql->bind_param("dsd", $_SESSION['room_num'], $_SESSION['username'], $_SESSION['elo']);
                 $sql->execute();
 
                 // check for success or error

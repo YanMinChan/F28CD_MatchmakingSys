@@ -19,6 +19,9 @@
     <?php
         if(isset($_POST['viewScore'])){
             $query = mysqli_query($conn, "UPDATE rooms SET in_game=false WHERE room_num=".$_SESSION['room_num']);
+            $query = mysqli_query($conn, "UPDATE rooms SET in_game=false WHERE room_num=".$_SESSION['opposite_team']);
+            // unset($_SESSION['opposite_team']);
+
             header("Location:playerScorePage.php");
         }
     ?>

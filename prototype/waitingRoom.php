@@ -24,7 +24,7 @@
     <?php
     
         // URL of your Python backend
-        $python_backend_url = 'http://localhost:8080';
+        // $python_backend_url = 'http://localhost:8080';
 
         // // Make a GET request to the Python backend
         // $response_json = file_get_contents($python_backend_url);
@@ -45,6 +45,8 @@
         // } else {
         //     echo "Room number not found.";
         // }
+
+        // check if the game has started. If it is then move into game
         $query = mysqli_query($conn, "SELECT * FROM rooms WHERE room_num=".$_SESSION['room_num']);
         $res = mysqli_fetch_assoc($query);     
 
@@ -56,12 +58,14 @@
             // start game if room is full
             if ($res['player_count']==5){
                 $query = mysqli_query($conn, "UPDATE rooms SET in_game=true WHERE room_num=".$_SESSION['room_num']);
-                header("Location:victoryPage.php");
 
                 // execute the python elo rating code
-                $command = escapeshellcmd('python ./../ES/elo_system_sql.py');
+                $command = escapeshellcmd("python ./../ES/elo_system_sql.py ".$_SESSION['room_num']);
                 $output = shell_exec($command);
-                header('Location: ./victoryPage.html');
+                $_SESSION['opposite_team'] = $output;
+                $query = mysqli_query($conn, "UPDATE rooms SET in_game=true WHERE room_num=".$_SESSION['opposite_team']);
+
+                header("Location:victoryPage.php");
                 exit;
             }
 
@@ -130,9 +134,9 @@
         </div>
         <br>
         <button id="chatbox" onclick="goToChatBox()">Chat</button>
-            <form method="post">
-                <input type="submit" name="StartGame" id="play" value="Play" />
-            </form>
+        <form method="post">
+            <button type="submit" name="StartGame" id="play">Play</button>
+        </form>
     </div>
     <div class="footer"></div>
     <script>
