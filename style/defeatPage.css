@@ -1,0 +1,96 @@
+/* victoryPage.css */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #000000 url('background.jpg') no-repeat center center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.defeat-container {
+    width: 400px;
+    background-color: rgba(52, 48, 48, 0.8); 
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1); 
+    padding: 40px;
+    text-align: center;
+    color: #fff;
+}
+
+.defeat-header {
+    background-color: #cb2e0f; 
+    padding: 20px 0;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.defeat-header h2 {
+    font-size: 24px;
+}
+
+.defeat-message {
+    margin-top: 20px;
+}
+
+.buttons-container {
+    margin-top: 40px;
+}
+
+.players-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.player {
+    text-align: center;
+    margin: 10px; 
+}
+#player1-img {
+    
+    width: 150px; 
+    height: auto; 
+    border-radius: 100%; 
+}
+
+#player2-img {
+    
+    width: 150px; 
+    height: auto; 
+    border-radius: 100%; 
+}
+#player3-img {
+    
+    width: 150px; 
+    height: auto; 
+    border-radius: 100%; 
+}
+#player4-img {
+    
+    width: 150px; 
+    height: auto; 
+    border-radius: 100%; 
+}
+.reportPlayer,
+.viewScore {
+    background-color: #ff4654; 
+    color: #fff;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+.defeat-message {
+    font-size: 20px;
+    margin-top: 30px;
+}
+.reportPlayer:hover,
+.viewScore:hover {
+    background-color: #c5313e; 
+}
