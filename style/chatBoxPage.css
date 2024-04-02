@@ -10,20 +10,32 @@ body {
     justify-content: space-between;
     margin: 0;
   }
+
   .page-title {
     text-align: center;
     color: #ffffff; 
-    font-size: 24px; 
+    font-size: 40px; 
     margin: 20px 0; 
     font-weight: bold;
   }
+
   .header {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
-    padding: 10px;
-    background-color: #1f1f1f; /* Match the body background color */
-  }
+    align-items: center;
+    padding: 0 10px;
+}
+.header .page-title {
+    margin: 0;
+    font-size: 25px; 
+}
+.Room-no {
+    text-align: center;
+    color: #ffffff; 
+    font-size: 20px; 
+    margin: 10px 0; 
+    align-items: center;
+}
   
   .topButton {
     background-color: #c0310a; 
