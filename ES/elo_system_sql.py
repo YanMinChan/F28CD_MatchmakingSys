@@ -39,6 +39,9 @@ def load_players_sql(conf, room_num):
         cursor.execute("SELECT team_elo FROM rooms WHERE room_num="+str(room_num))
         team_elo = float(cursor.fetchone()[0])
 
+        # Set in game to true
+        cursor.execute("UPDATE rooms SET in_game=true WHERE room_num="+str(room_num))
+        
     except mysql.connector.Error as err:
         print("Error:", err)
 

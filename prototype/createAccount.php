@@ -9,7 +9,6 @@
 <body>
     <!-- the whole create account container -->
     <div class="container">
-
         <?php
             // include database configuration
             include("../config/config.php");
@@ -49,7 +48,7 @@
 
                     // check for success or error
                     if ($sql->affected_rows > 0) {
-                        echo "<div>
+                        echo "<div class='container'>
                             <p> Account created successfully! </p>
                         </div> <br>";
                         echo "<a href='index.php'><button> Login now </button>";
@@ -60,7 +59,6 @@
                 }
             } else {
         ?>
-
         <h1>Sign Up</h1>
 
         <form id="createAcc" action ="" onsubmit="return validateForm()" method="post">

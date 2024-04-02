@@ -47,7 +47,7 @@
                     echo "<a href='javascript:self.history.back()'><button> Go Back </button>";
                 }
                 if (isset($_SESSION['valid'])){
-                    header("Location: matchingLobby.php");
+                    echo "<script>location.href = 'matchingLobby.php';</script>";
                 }
             } else {
 

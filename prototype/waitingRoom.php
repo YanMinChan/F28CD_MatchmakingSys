@@ -51,21 +51,21 @@
         $res = mysqli_fetch_assoc($query);     
 
         if($res['in_game']){
-            header("Location:victoryPage.php");
+            echo "<script>location.href = 'victoryPage.php';</script>";
         }
 
         if (isset($_POST['StartGame'])) {
             // start game if room is full
             if ($res['player_count']==5){
-                $query = mysqli_query($conn, "UPDATE rooms SET in_game=true WHERE room_num=".$_SESSION['room_num']);
+                //$query = mysqli_query($conn, "UPDATE rooms SET in_game=true WHERE room_num=".$_SESSION['room_num']);
 
                 // execute the python elo rating code
                 $command = escapeshellcmd("python ./../ES/elo_system_sql.py ".$_SESSION['room_num']);
                 $output = shell_exec($command);
-                $_SESSION['opposite_team'] = $output;
-                $query = mysqli_query($conn, "UPDATE rooms SET in_game=true WHERE room_num=".$_SESSION['opposite_team']);
-
-                header("Location:victoryPage.php");
+                //$_SESSION['opposite_team'] = $output;
+                //$query = mysqli_query($conn, "UPDATE rooms SET in_game=true WHERE room_num=".$_SESSION['opposite_team']);
+                
+                echo "<script>location.href = 'victoryPage.php';</script>";
                 exit;
             }
 
@@ -96,7 +96,7 @@
             leaveRoom();
 
             // url to matching lobby
-            header("Location: matchingLobby.php");
+            echo "<script>location.href = 'matchingLobby.php';</script>";
         }
     ?>
 

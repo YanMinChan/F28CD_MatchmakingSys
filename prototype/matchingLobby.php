@@ -35,7 +35,6 @@
 	</style>
 </head>
 <body>
-<div class="page-title">Matching Lobby</div>
 	<div class="header">
 		<a href="../config/logout.php"><button id="disconnect">Log out</button></a>
 	</div>
@@ -77,14 +76,14 @@
 					$sql->execute();
 
 					// url to the waiting room
-					$room_url = "Location: waitingRoom.php?room_num=" . strval($_SESSION['room_num']);
-					header($room_url);
+					$room_url = "waitingRoom.php?room_num=" . strval($_SESSION['room_num']);
+					echo "<script>location.href='$room_url';</script>";
 				}
 			}
 
 		?>
 		<div>
-			<h2>Matching Lobby</h2>
+		<div class="page-title">Matching Lobby</div>
 		</div>
 		<div>
 			<p> Hello <b> <?php echo $_SESSION['username'] ?></b><p>
