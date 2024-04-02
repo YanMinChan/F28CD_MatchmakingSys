@@ -11,19 +11,25 @@ body {
 .header {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
-    background: linear-gradient(135deg, #1f1f1f, #242424);
-    color: #fff;
-    padding: 10px;
-    text-align: center;
+    align-items: center;
+    padding: 0 10px;
 }
-
+.header .page-title {
+    margin: 0;
+    font-size: 20px; 
+}
+.Room-no {
+    text-align: center;
+    color: #ffffff; 
+    font-size: 20px; 
+    margin: 20px 0; 
+}
 .page-title {
     text-align: center;
-    color: #ffffff; /* Adjust color to fit your theme */
-    font-size: 24px; /* Adjust size as needed */
-    margin: 20px 0; /* Provides some spacing above and below the title */
-    font-weight: bold; /* Makes the title stand out */
+    color: #ffffff; 
+    font-size: 24px; 
+    margin: 20px 0; 
+    font-weight: bold; 
 }
 
 .container {
