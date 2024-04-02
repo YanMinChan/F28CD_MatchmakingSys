@@ -60,11 +60,13 @@
                 //$query = mysqli_query($conn, "UPDATE rooms SET in_game=true WHERE room_num=".$_SESSION['room_num']);
 
                 // execute the python elo rating code
-                $command = escapeshellcmd("python ./../ES/elo_system_sql.py ".$_SESSION['room_num']);
-                $output = shell_exec($command);
+                // $command = escapeshellcmd("python ./../ES/elo_system_sql.py ".$_SESSION['room_num']);
+                // $output = shell_exec($command);
                 //$_SESSION['opposite_team'] = $output;
                 //$query = mysqli_query($conn, "UPDATE rooms SET in_game=true WHERE room_num=".$_SESSION['opposite_team']);
-                
+                include("../ES/elo_system.php");
+                $_SESSION['opposite_team'] = run($_SESSION['room_num']);
+
                 echo "<script>location.href = 'victoryPage.php';</script>";
                 exit;
             }
