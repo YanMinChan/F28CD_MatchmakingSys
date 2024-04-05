@@ -22,9 +22,10 @@
 
                 //execute query
                 $sql = $conn->prepare("SELECT * FROM rooms WHERE room_num=?");
-                $sql->bind_param("d", $room_num);
+                $sql->bind_param("s", $room_num);
                 $sql->execute();
                 $result = $sql->get_result();
+                $row = $result-> fetch_assoc();
 
                 // check if room num exist
                 if ($result->num_rows==0){ 
@@ -32,19 +33,20 @@
                         <p> This room does not exist! </p>
                     </div> <br>";
                     echo "<a href='javascript:self.history.back()'><button id='roomne'> Go Back </button>";
-                } else if ($result-> fetch_assoc()['player_count'] == 5){
+                } else if ($row['player_count'] == 5){
                     echo "<div class='interface'>
                         <p> This room is full! </p>
                     </div> <br>";
                     echo "<a href='javascript:self.history.back()'><button id='roomne'> Go Back </button>";
                 }
                 else {
+
                     // successfully join room, insert player into room
                     $sql = $conn->prepare("INSERT INTO player_joinroom (room_num, pname) VALUES (?, ?)");
                     $sql->bind_param("ds", $room_num, $_SESSION['username']);
                     $sql->execute();
 
-                    $row = $result->fetch_assoc();
+                    
                     $query = mysqli_query($conn, "SELECT * FROM players WHERE name='".$_SESSION['username']."'");
                     $current_player_elo = mysqli_fetch_assoc($query)['elo_rating'];
 
