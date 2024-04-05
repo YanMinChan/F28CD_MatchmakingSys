@@ -52,28 +52,36 @@ body {
 }
 #player1-img {
     
-    width: 150px; 
+     width: 100%;
     height: auto; 
+    max-width: 150px; 
     border-radius: 100%; 
+    object-fit: cover;
 }
 
 #player2-img {
     
-    width: 150px; 
+    width: 100%;
     height: auto; 
+    max-width: 150px; 
     border-radius: 100%; 
+    object-fit: cover;
 }
 #player3-img {
     
-    width: 150px; 
+     width: 100%;
     height: auto; 
+    max-width: 150px; 
     border-radius: 100%; 
+    object-fit: cover;
 }
 #player4-img {
     
-    width: 150px; 
+     width: 100%;
     height: auto; 
+    max-width: 150px; 
     border-radius: 100%; 
+    object-fit: cover;
 }
 .reportPlayer,
 .viewScore {
