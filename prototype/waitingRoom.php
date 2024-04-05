@@ -51,7 +51,12 @@
         $res = mysqli_fetch_assoc($query);     
 
         if($res['in_game']){
-            echo "<script>location.href = 'victoryPage.php';</script>";
+            //change
+            if($res['game_result']==1){
+                echo "<script>location.href = 'victoryPage.php';</script>";
+            } else {
+                echo "<script>location.href = 'defeatPage.php';</script>";
+            }
         }
 
         if (isset($_POST['StartGame'])) {
@@ -65,9 +70,14 @@
                 //$_SESSION['opposite_team'] = $output;
                 //$query = mysqli_query($conn, "UPDATE rooms SET in_game=true WHERE room_num=".$_SESSION['opposite_team']);
                 include("../ES/elo_system.php");
-                $_SESSION['opposite_team'] = run($_SESSION['room_num']);
+                list($_SESSION['opposite_team'], $match_result) = run($_SESSION['room_num']);
 
-                echo "<script>location.href = 'victoryPage.php';</script>";
+                if($match_result==1){
+                    echo "<script>location.href = 'victoryPage.php';</script>";
+                } else {
+                    echo "<script>location.href = 'defeatPage.php';</script>";
+                }
+               
                 exit;
             }
 

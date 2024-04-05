@@ -18,8 +18,8 @@
     <!-- This php code handle all action of the view score button -->
     <?php
         if(isset($_POST['viewScore'])){
-            $query = mysqli_query($conn, "UPDATE rooms SET in_game=false WHERE room_num=".$_SESSION['room_num']);
-            $query = mysqli_query($conn, "UPDATE rooms SET in_game=false WHERE room_num=".$_SESSION['opposite_team']);
+            $query = mysqli_query($conn, "UPDATE rooms SET in_game=false, game_result=null WHERE room_num=".$_SESSION['room_num']);
+            $query = mysqli_query($conn, "UPDATE rooms SET in_game=false, game_result=null WHERE room_num=".$_SESSION['opposite_team']);
             
             echo "<script>location.href = 'playerScorePage.php';</script>";
         }
