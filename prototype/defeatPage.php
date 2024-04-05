@@ -27,11 +27,11 @@
     <div class="container">
         <div class="players-grid">
             <div class="player" id="player1">
-                <img src="C:\Users\Mridul\Dropbox\PC\Desktop\Card1.jpg" alt="Player 1 Image" id="player1-img">
+                <img src="../Player 1.jpg" alt="Player 1 Image" id="player1-img">
                 <p>Player 1</p>
             </div>
             <div class="player" id="player2">
-                <img src="C:\Users\Mridul\Dropbox\PC\Desktop\Card2.jpg" alt="Player 2 Image" id="player2-img">
+                <img src="../Player 2.jpg" alt="Player 2 Image" id="player2-img">
                 <p>Player 2</p>
             </div>
         </div>
@@ -51,11 +51,11 @@
     <div class="container">
         <div class="players-grid">
             <div class="player" id="player3">
-                <img src="C:\Users\Mridul\Dropbox\PC\Desktop\Card2.jpg" alt="Player 3 Image" id="player3-img">
+                <img src="../Player 3.jpg" alt="Player 3 Image" id="player3-img">
                 <p>Player 3</p>
             </div>
             <div class="player" id="player4">
-                <img src="C:\Users\Mridul\Dropbox\PC\Desktop\Card1.jpg" alt="Player 4 Image" id="player4-img">
+                <img src="../Player 4.jpg" alt="Player 4 Image" id="player4-img">
                 <p>Player 4</p>
             </div>
         </div>
