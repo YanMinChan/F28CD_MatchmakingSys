@@ -5,6 +5,17 @@
 	if(!isset($_SESSION['valid'])){
 		header("Location: index.php");
 	}
+
+	include("../config/leaveRoom.php");
+	// check if player unexpectedly leave room without pressing the leave room button in waiting room
+	$query = mysqli_query($conn, "SELECT * FROM player_joinroom WHERE pname='".$_SESSION['username']."'");
+	if($query){
+		// return results more than 1 rows means user is in room
+		if(mysqli_num_rows($query)>0){
+			$_SESSION['room_num'] = mysqli_fetch_assoc($query)['room_num'];
+			leaveRoom();
+		}
+	}
 ?>
 <!DOCTYPE html>
 <head>

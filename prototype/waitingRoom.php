@@ -12,20 +12,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="refresh" content="10" />
+    <title>Waiting Room</title>
     <link href="../style/waitingRoom.css" rel="stylesheet" type="text/css">
     <style>
 </style>
 
 </head>
 <body>
-<element class="header">
-<form method="post"><button id="leaveRoom" name="leaveRoom">Leave Room</button></form>
-        <h2 class="page-title">Waiting Room</h2>
-        <button id="reportPlayer" onclick="goToReportPage()">Report Player</button>
-</element>
-<element class="Room-no">
-        <p> Room no: <?php echo $_SESSION['room_num'] ?></p>
-</element>
+    <div class="page-title">Waiting Room</div>
     <!-- This php code handle all action of the play button and starting the game -->
     <?php
     
@@ -78,7 +72,6 @@
             }
 
 
-
         }
     ?>
     <!-- This php code fetch all player in current room -->
@@ -107,6 +100,13 @@
             echo "<script>location.href = 'matchingLobby.php';</script>";
         }
     ?>
+
+    
+    <div class="header">
+        <form method="post"><button id="leaveRoom" name="leaveRoom">Leave Room</button></form>
+        <p> Room no: <?php echo $_SESSION['room_num'] ?></p>
+        <button id="reportPlayer" onclick="goToReportPage()">Report Player</button>
+    </div>
     <div class="container">
         <p> Our Team </p>
         <div class="container">

@@ -20,7 +20,7 @@
         include("../config/leaveRoom.php");
         if(isset($_POST['leavePage'])){
             leaveRoom();
-            echo "<script>location.href = 'matchingLobby.php';</script>";
+            header("Location:matchingLobby.php");
         }
     ?>
     <div class="header">
