@@ -40,6 +40,7 @@
         <div class="defeat-header">
             <h2>Defeat</h2>
         </div>
+            <div>Team <?php echo $_SESSION['room_num'] ?> vs Team <?php echo $_SESSION['opposite_team'] ?> </div>
         <div class="defeat-message">
             <p>Well Played But! You Have Lost The Game</p>
         </div>

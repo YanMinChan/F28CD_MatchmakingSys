@@ -60,10 +60,10 @@
 				$query = mysqli_query($conn, "SELECT * FROM rooms WHERE player_count < 5 ORDER BY ABS(team_elo - $current_player_elo) LIMIT 1");
 				$res = mysqli_fetch_assoc($query);
 
-				$threshold = 3000;
+				$threshold = 200;
 
 				// if no room exist create one
-				if (!$res){
+				if (mysqli_num_rows($query)==0){
 					createRoom();
 				} else { // rooms exist
 					// check the elo_threshold, if within threshold move to room, else create new room

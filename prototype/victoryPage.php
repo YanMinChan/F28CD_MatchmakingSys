@@ -40,6 +40,7 @@
         <div class="victory-header">
             <h2>Victory</h2>
         </div>
+            <div>Team <?php echo $_SESSION['room_num'] ?> vs Team <?php echo $_SESSION['opposite_team'] ?> </div>
         <div class="victory-message">
             <p>Congratulations! You won the game.</p>
         </div>

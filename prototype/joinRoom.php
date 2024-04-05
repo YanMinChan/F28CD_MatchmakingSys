@@ -61,7 +61,8 @@
                         echo "<div>
                             <p> Successfully join room! </p>
                         </div> <br>";
-                        echo "<a href='waitingRoom.php'><button> Continue </button>";
+                        $room_url = "waitingRoom.php?room_num=" . strval($_SESSION['room_num']);
+                        echo "<a href='$room_url'><button> Continue </button>";
                     } else {
                         echo "Error joining room: " . $sql->error . "<br>";
                         echo "<a href='javascript:self.history.back()'><button> Go Back </button>";
@@ -83,16 +84,24 @@
                 $_SESSION['room_num']=$room_num;
 
                 // store room_num and creator
+                //$sql = $conn->prepare("INSERT INTO player_joinroom (room_num, pname) VALUES (?, ?)");
+                //$sql->bind_param("ds", $_SESSION['room_num'], $_SESSION['username']);
+                //$sql->execute();
+                    
                 $sql = $conn->prepare("INSERT INTO rooms (room_num, creator, team_elo) VALUES (?, ?, ?)");
                 $sql->bind_param("dsd", $_SESSION['room_num'], $_SESSION['username'], $_SESSION['elo']);
                 $sql->execute();
+                
+                $query = mysqli_query($conn, "INSERT INTO player_joinroom (room_num, pname) VALUES (".$_SESSION['room_num'].",'".$_SESSION['username']."')");
+
 
                 // check for success or error
                 if ($sql->affected_rows > 0) {
                     echo "<div>
                         <p> Successfully create room! </p>
                     </div> <br>";
-                    echo "<a href='waitingRoom.php'><button> Continue </button>";
+                    $room_url = "waitingRoom.php?room_num=" . strval($_SESSION['room_num']);
+                    echo "<a href='$room_url'><button> Continue </button>";
                 } else {
                     echo "Error creating room: " . $sql->error . "<br>";
                     echo "<a href='javascript:self.history.back()'><button> Go Back </button>";
