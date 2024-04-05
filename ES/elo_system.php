@@ -76,7 +76,7 @@ function load_opposite_sql($team_elo, $room_num) {
 }
 
 // Save player data to database
-function save_players_sql($players, $teams) {
+function save_players_sql($players, $teams, $match_result) {
     try {
         // connect to the database
         include("../config/config.php");
@@ -99,6 +99,39 @@ function save_players_sql($players, $teams) {
             $stmt = $conn->prepare($update_query);
             $stmt->bind_param("di", $new_team_elo, $room_num);
             $stmt->execute();
+        }
+
+        // Update match result
+        if($match_result==1){ 
+            // Team 1 wins
+            $update_query = "UPDATE rooms SET game_result = ? WHERE room_num = ?";
+            $game_result = 1;
+            $room_num = $teams[0]['room_num'];
+            $stmt = $conn->prepare($update_query);
+            $stmt->bind_param("ii", $game_result, $room_num);
+            $stmt->execute();
+            // Team 2 loses
+            $update_query = "UPDATE rooms SET game_result = ? WHERE room_num = ?";
+            $game_result = -1;
+            $room_num = $teams[1]['room_num'];
+            $stmt = $conn->prepare($update_query);
+            $stmt->bind_param("ii", $game_result, $room_num);
+            $stmt->execute();
+        } else {
+            // Team 2 wins
+            $update_query = "UPDATE rooms SET game_result = ? WHERE room_num = ?";
+            $game_result = 1;
+            $room_num = $teams[1]['room_num'];
+            $stmt = $conn->prepare($update_query);
+            $stmt->bind_param("ii", $game_result, $room_num);
+            $stmt->execute();
+            // Team 1 loses
+            $update_query = "UPDATE rooms SET game_result = ? WHERE room_num = ?";
+            $game_result = -1;
+            $room_num = $teams[0]['room_num'];
+            $stmt = $conn->prepare($update_query);
+            $stmt->bind_param("ii", $game_result, $room_num);
+            $stmt->execute();  
         }
 
         $conn->close();
@@ -145,7 +178,7 @@ function simulate_game($team1, $team2, $team1_average_elo, $team2_average_elo) {
     $team1_elo = array_sum(array_column($team1, 'elo_rating')) / count($team1);
     $team2_elo = array_sum(array_column($team2, 'elo_rating')) / count($team2);
 
-    return [$team1_elo, $team2_elo];
+    return [$team1_elo, $team2_elo, $match_result];
 }
 
 // Main function
@@ -155,7 +188,7 @@ function run($room_num) {
     list($opposite_player, $opposite_team_elo, $opposite_team) = load_opposite_sql($team_elo, $room_num);
 
     // Simulate a game and update player data
-    list($new_team_elo, $new_opposite_team_elo) = simulate_game($players, $opposite_player, $team_elo, $opposite_team_elo);
+    list($new_team_elo, $new_opposite_team_elo, $match_result) = simulate_game($players, $opposite_player, $team_elo, $opposite_team_elo);
 
     // Save updated player data to JSON file
     $all_players = array_merge($players, $opposite_player);
@@ -164,6 +197,6 @@ function run($room_num) {
         ['room_num' => $opposite_team, 'team_elo' => $new_opposite_team_elo]
     ];
 
-    save_players_sql($all_players, $teams);
-    return $opposite_team;
+    save_players_sql($all_players, $teams, $match_result);
+    return [$opposite_team, $match_result];
 }
