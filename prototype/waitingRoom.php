@@ -112,23 +112,23 @@
         <div class="container">
             <div class="players-grid">
                 <div class="player" id="player1">
-                    <img src="C:\Users\Mridul\Dropbox\PC\Desktop\Card1.jpg" alt="Player 1 Image" id="player1-img">
+                    <img src="../Player 1.jpg" alt="Player 1 Image" id="player1-img">
                     <p><?php echo $_SESSION['username'] ?></p>
                 </div>
                 <div class="player" id="player2">
-                    <img src="C:\Users\Mridul\Dropbox\PC\Desktop\Card2.jpg" alt="Player 2 Image" id="player2-img">
+                    <img src="../Player 2.jpg" alt="Player 2 Image" id="player2-img">
                     <p><?php if(!empty($players[0])){echo $players[0];} else {echo "No player";} ?></p>
                 </div>
                 <div class="player" id="player3">
-                    <img src="C:\Users\Mridul\Dropbox\PC\Desktop\Card1.jpg" alt="Player 3 Image" id="player3-img">
+                    <img src="../Player 3.jpg" alt="Player 3 Image" id="player3-img">
                     <p><?php if(!empty($players[1])){echo $players[1];} else {echo "No player";} ?></p>
                 </div>
                 <div class="player" id="player4">
-                    <img src="C:\Users\Mridul\Dropbox\PC\Desktop\Card2.jpg" alt="Player 4 Image" id="player4-img">
+                    <img src="../Player 4.jpg" alt="Player 4 Image" id="player4-img">
                     <p><?php if(!empty($players[2])){echo $players[2];} else {echo "No player";} ?></p>
                 </div>
                 <div class="player" id="player5">
-                    <img src="C:\Users\Mridul\Dropbox\PC\Desktop\Card2.jpg" alt="Player 4 Image" id="player4-img">
+                    <img src="../Player 5.jpg" alt="Player 4 Image" id="player4-img">
                     <p><?php if(!empty($players[3])){echo $players[3];} else {echo "No player";} ?></p>
                 </div>
             </div>
