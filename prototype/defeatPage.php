@@ -24,6 +24,17 @@
             echo "<script>location.href = 'playerScorePage.php';</script>";
         }
     ?>
+    <!-- This php code handle all action of the leave room button -->
+    <?php 
+        if(isset($_POST['leaveRoom'])){
+            $query = mysqli_query($conn, "UPDATE rooms SET in_game=false, game_result=null WHERE room_num=".$_SESSION['room_num']);
+            $query = mysqli_query($conn, "UPDATE rooms SET in_game=false, game_result=null WHERE room_num=".$_SESSION['opposite_team']);
+
+            include("../config/leaveRoom.php");
+            leaveRoom();
+            echo "<script>location.href='matchingLobby.php';</script>";
+        }
+    ?>
     <div class="container">
         <div class="players-grid">
             <div class="player" id="player1">
@@ -47,6 +58,7 @@
         <div class="buttons-container">
             <button class="reportPlayer" onclick="goToReportPage()">Report Player</button>
             <form method="post"><button class="viewScore" name="viewScore">View Score</button></form>
+            <form method="post"><button class="leaveRoom" name="leaveRoom">Leave Room</button></form>
         </div>
     </div>
     <div class="container">

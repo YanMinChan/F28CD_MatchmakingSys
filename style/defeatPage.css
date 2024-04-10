@@ -83,7 +83,7 @@ body {
     object-fit: cover;
 }
 .reportPlayer,
-.viewScore {
+.viewScore, .leaveRoom {
     background-color: #ff4654; 
     color: #fff;
     padding: 12px 24px;
@@ -92,6 +92,7 @@ body {
     cursor: pointer;
     font-size: 16px;
     transition: background-color 0.3s ease;
+    margin-bottom: 5px;
 }
 .defeat-message {
     font-size: 20px;

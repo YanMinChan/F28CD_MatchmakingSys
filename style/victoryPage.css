@@ -84,7 +84,7 @@ body {
     object-fit: cover;
 }
 .reportPlayer,
-.viewScore {
+.viewScore, .leaveRoom {
     background-color: #ff4654; 
     color: #fff;
     padding: 12px 24px;
