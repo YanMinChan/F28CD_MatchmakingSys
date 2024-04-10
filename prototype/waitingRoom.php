@@ -22,30 +22,6 @@
     <div class="page-title">Waiting Room</div>
     <!-- This php code handle all action of the play button and starting the game -->
     <?php
-    
-        // URL of your Python backend
-        // $python_backend_url = 'http://localhost:8080';
-
-        // // Make a GET request to the Python backend
-        // $response_json = file_get_contents($python_backend_url);
-
-        // // Decode the JSON response into a PHP associative array
-        // $response_data = json_decode($response_json, true);
-
-        // // Check if the response contains player names
-        // if (isset($response_data['players'])) {
-        //     $player_names = $response_data['players'];
-        // } else {
-        //     echo "No player names found.";
-        // }
-
-        // // Check if the response contains room num
-        // if (isset($response_data['room'])){
-        //     $room_num = $response_data['room'];
-        // } else {
-        //     echo "Room number not found.";
-        // }
-
         // check if the game has started. If it is then move into game
         $query = mysqli_query($conn, "SELECT * FROM rooms WHERE room_num=".$_SESSION['room_num']);
         $res = mysqli_fetch_assoc($query);     
@@ -62,16 +38,10 @@
         if (isset($_POST['StartGame'])) {
             // start game if room is full
             if ($res['player_count']==5){
-                //$query = mysqli_query($conn, "UPDATE rooms SET in_game=true WHERE room_num=".$_SESSION['room_num']);
-
-                // execute the python elo rating code
-                // $command = escapeshellcmd("python ./../ES/elo_system_sql.py ".$_SESSION['room_num']);
-                // $output = shell_exec($command);
-                //$_SESSION['opposite_team'] = $output;
-                //$query = mysqli_query($conn, "UPDATE rooms SET in_game=true WHERE room_num=".$_SESSION['opposite_team']);
                 include("../ES/elo_system.php");
                 list($_SESSION['opposite_team'], $match_result) = run($_SESSION['room_num']);
 
+                //to go to a new page
                 if($match_result==1){
                     echo "<script>location.href = 'victoryPage.php';</script>";
                 } else {
@@ -153,10 +123,12 @@
     <script>
 
         function goToReportPage(){
+            //function to go to a new web page, to report players
             window.location.href="reportPage.html";
         }
 
         function goToChatBox(){
+            //function to go to a new web page, for chat with other player
             window.location.href="chatBoxPage.html";
         }
     </script>
