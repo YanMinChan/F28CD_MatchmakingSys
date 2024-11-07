@@ -1,12 +1,6 @@
 import mysql.connector
 
 # Replace with your actual database credentials
-config = {
-    'host': '132.145.18.222',
-    'user': 'yc89',
-    'password': 't2!BgOChrfZ',
-    'database': 'yc89'
-}
 
 try:
     # Connect to the database
